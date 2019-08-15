@@ -1,0 +1,28 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<label for="input">Try it:
+<input id="input" type="text" placeholder="Type something here..."/>
+</label>
+
+<script>
+	function validateEmail(e) {
+		// const isValid = fetch("/valid_email?email=? + e.element.text)
+
+		// return isValid.ok
+		console.log("result: true (or false)");
+	}
+
+	function foo(func, timeout = 200) {
+		var timer = 0;
+		return function() {
+			var context = this,
+				args = arguments;
+			clearTimeout(timer);
+			timer = setTimeout(function() {
+				func.apply(context, args);
+			}, timeout || 0);
+		};
+	}
+
+	$('#input').keyup(foo(validateEmail, 500));
+</script>
